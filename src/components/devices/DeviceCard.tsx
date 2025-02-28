@@ -21,9 +21,10 @@ interface DeviceCardProps {
   onSyncData: (id: string) => void;
   onConfigure: (id: string) => void;
   className?: string;
+  style?: React.CSSProperties; // Added style prop to the interface
 }
 
-export function DeviceCard({ device, onSyncData, onConfigure, className }: DeviceCardProps) {
+export function DeviceCard({ device, onSyncData, onConfigure, className, style }: DeviceCardProps) {
   const statusColor = {
     online: "bg-green-100 text-green-800 border-green-200",
     offline: "bg-gray-100 text-gray-800 border-gray-200",
@@ -31,7 +32,7 @@ export function DeviceCard({ device, onSyncData, onConfigure, className }: Devic
   };
 
   return (
-    <Card className={cn("overflow-hidden transition-all hover:shadow-md", className)}>
+    <Card className={cn("overflow-hidden transition-all hover:shadow-md", className)} style={style}>
       <CardHeader className="pb-2">
         <div className="flex justify-between items-start">
           <CardTitle className="text-lg">{device.name}</CardTitle>

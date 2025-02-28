@@ -4,7 +4,7 @@ import { DeviceCard, DeviceData } from "./DeviceCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Plus, RefreshCw, Filter } from "lucide-react";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 // Mock device data
 const mockDevices: DeviceData[] = [
@@ -125,7 +125,8 @@ export function DeviceList() {
               device={device}
               onSyncData={handleSyncData}
               onConfigure={handleConfigure}
-              className="animate-scale-in"
+              className={`animate-scale-in`}
+              // Removed style prop and use CSS animation-delay variable
               style={{ animationDelay: `${parseInt(device.id) * 100}ms` }}
             />
           ))
